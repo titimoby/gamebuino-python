@@ -7,4 +7,6 @@ Port of existing C++ tutorials, games...
 
 [Original Author: Gamebuino Team](https://gamebuino.com)
 
-[Step 1](casse-briques/introduction.py)
+[Step 0](casse-briques/introduction.py)
+
+[Step 1](casse-briques/first-bricks.py)
