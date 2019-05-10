@@ -21,15 +21,15 @@ while True:
 
   if(gb.buttons.pressed(gb.buttons.UP)):
     counter = counter + 1
-    gb.sound.playOK()
+    # gb.sound.playOK() # sound not yet implemented in GBCircuiPython
 
   if(gb.buttons.pressed(gb.buttons.DOWN)):
     counter = counter - 1
-    gb.sound.playCancel()
+    # gb.sound.playCancel() # sound not yet implemented in GBCircuiPython
 
   if(gb.buttons.pressed(gb.buttons.MENU)):
     counter = 0
-    gb.sound.playTick()
+    # gb.sound.playTick() # sound not yet implemented in GBCircuiPython
 
   gb.display.setColor(gb.color.BROWN)
   gb.display.fillRect(0, 0, counter, gb.display.height())
@@ -37,5 +37,6 @@ while True:
   gb.display.setColor(gb.color.WHITE)
   gb.display.setFontSize(4)
   # gb.display.setCursor(8,8) # this method is not present in CircuitPython 0.0.5
-  gb.display.print(counter)
+  # gb.display.print(counter) # original code
+  gb.display.print(8, 8, counter)
 

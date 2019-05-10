@@ -127,14 +127,14 @@ while True:
 
   # Draw scores
   # gb.display.setCursor(35, 5) # this method is not present in CircuitPython 0.0.5
-  gb.display.print(score1)
+  gb.display.print(35, 5, score1)
   # gb.display.setCursor(42, 5) # this method is not present in CircuitPython 0.0.5
-  gb.display.print(score2)
+  gb.display.print(52, 5, score2)
 
   # Draw difficulty
   # gb.display.setCursor(33, gb.display.height() - 5) # this method is not present in CircuitPython 0.0.5
   if (difficulty == 3):
-    gb.display.print("EASY")
+    gb.display.print(33, gb.display.height() - 5, "EASY")
   else:
-    gb.display.print("HARD")
+    gb.display.print(33, gb.display.height() - 5, "HARD")
   
