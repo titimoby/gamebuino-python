@@ -49,7 +49,7 @@ while True:
     # Go up
     speedY = -1
 
-  gb.display.setColor(BROWN)
+  gb.display.setColor(gb.color.BROWN)
   gb.display.print("positionX: ")
   gb.display.print(positionX)
   gb.display.print("\nspeedX: ")
@@ -62,6 +62,6 @@ while True:
   gb.display.print(speedY)
 
 
-  gb.display.setColor(WHITE)
+  gb.display.setColor(gb.color.WHITE)
   gb.display.fillRect(positionX, positionY, ballSize, ballSize)
 

@@ -11,6 +11,10 @@ Port of existing C++ tutorials, games...
 
 [Step 1](casse-briques/first-bricks.py)
 
+[Step 2](casse-briques/things-in-things.py)
+
+[Step 3](casse-briques/rainbow.py)
+
 * Pong
 
 [Original C++ version](https://gamebuino.com/academy/workshop/make-your-very-first-games-with-pong)

@@ -33,9 +33,9 @@ while True:
   gb.display.clear()
 
   # Update paddle1 position
-  if (gb.buttons.repeat(BUTTON_UP, 0)):
+  if (gb.buttons.repeat(gb.buttons.UP, 0)):
     paddle1_posY = paddle1_posY - 1  
-  if (gb.buttons.repeat(BUTTON_DOWN, 0)):
+  if (gb.buttons.repeat(gb.buttons.DOWN, 0)):
     paddle1_posY = paddle1_posY + 1
 
   # Update ball position
@@ -51,9 +51,9 @@ while True:
     ball_speedX = -1
 
   # Ball-paddle1 collisions
-  if ( (ball_posX == paddle1_posX + paddle_width)
-    AND (ball_posY + ball_size >= paddle1_posY) 
-    AND (ball_posY <= paddle1_posY + paddle_height) ):
+  if ( (ball_posX == paddle1_posX + paddle_width) \
+    and (ball_posY + ball_size >= paddle1_posY) \
+    and (ball_posY <= paddle1_posY + paddle_height) ):
     ball_speedX = 1  
 
   # Check if the ball left the screen (on the left side)

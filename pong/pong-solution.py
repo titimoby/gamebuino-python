@@ -12,6 +12,7 @@
 # ----------------------------------------------------------
 
 import gamebuino_meta as gb
+from random import randint
 
 # ball attributes
 ball_posX = 20
@@ -36,8 +37,8 @@ paddle_width = 3
 paddle2_speedY = 0  # Vertical speed of the AI's paddle
 
 # Scores
-score1  # Player 1's score
-score2  # Player 2's score
+score1 = 0  # Player 1's score
+score2 = 0  # Player 2's score
 
 difficulty = 3  # Level of difficulty. 3 = EASY et 2 = HARD
 
@@ -46,22 +47,22 @@ while True:
   gb.display.clear()
 
   # Difficulty switch
-  if (gb.buttons.pressed(BUTTON_MENU)):
+  if (gb.buttons.pressed(gb.buttons.MENU)):
     if (difficulty == 3): # Easy
       difficulty = 2  # Change difficulty
     else:  # Hard
       difficulty = 3  # Change difficulty
 
   # Update paddle 1 (player controlled paddle)
-  if (gb.buttons.repeat(BUTTON_UP, 0)):
+  if (gb.buttons.repeat(gb.buttons.UP, 0)):
     paddle1_posY = paddle1_posY - 1 
-  if (gb.buttons.repeat(BUTTON_DOWN, 0)):
+  if (gb.buttons.repeat(gb.buttons.DOWN, 0)):
     paddle1_posY = paddle1_posY + 1
 
   # Update paddle2 (AI controlled paddle)
-  if (ball_posY > paddle2_posY + paddle_height / 2 AND random(0, difficulty) == 1):
+  if (ball_posY > paddle2_posY + paddle_height / 2 and randint(0, difficulty) == 1):
     paddle2_speedY = 2
-  elif (ball_posY < paddle2_posY + paddle_height / 2 AND random(0, difficulty) == 1):
+  elif (ball_posY < paddle2_posY + paddle_height / 2 and randint(0, difficulty) == 1):
     paddle2_speedY = -2
   
   paddle2_posY = paddle2_posY + paddle2_speedY  # Update paddle2's position
@@ -77,25 +78,25 @@ while True:
     ball_speedY = -1
 
   # Collision with paddle1
-  if ( (ball_posX == paddle1_posX + paddle_width)
-       AND (ball_posY + ball_size >= paddle1_posY)
-       AND (ball_posY <= paddle1_posY + paddle_height) ):
+  if ( (ball_posX == paddle1_posX + paddle_width) \
+       and (ball_posY + ball_size >= paddle1_posY) \
+       and (ball_posY <= paddle1_posY + paddle_height) ):
     ball_speedX = 1
   
   # Collision with paddle2
-  if ( (ball_posX + ball_size == paddle2_posX)
-       AND (ball_posY + ball_size >= paddle2_posY)
-       AND (ball_posY <= paddle2_posY + paddle_height) ):
+  if ( (ball_posX + ball_size == paddle2_posX) \
+       and (ball_posY + ball_size >= paddle2_posY) \
+       and (ball_posY <= paddle2_posY + paddle_height) ):
     ball_speedX = -1
   
   # Check if the ball exited the screen
   if (ball_posX < 0):
     # Reset the ball
     ball_posX = 20
-    ball_posY = random(20, gb.display.height() - 20)  # Random position along the Y axis
+    ball_posY = randint(20, gb.display.height() - 20)  # Random position along the Y axis
     ball_speedX = 1
 
-    if (random(0, 2) == 1):  # 50% of the time, this is true
+    if (randint(0, 2) == 1):  # 50% of the time, this is true
       ball_speedY = 1
     else:  # Other 50% of the time
       ball_speedY = -1
@@ -106,10 +107,10 @@ while True:
   if (ball_posX > gb.display.width()):
     # Reset ball
     ball_posX = 20
-    ball_posY = random(20, gb.display.height() - 20)  # Random position along the Y axis
+    ball_posY = randint(20, gb.display.height() - 20)  # Random position along the Y axis
     ball_speedX = 1
 
-    if (random(0, 2) == 1):  # 50% of the time, this is true
+    if (randint(0, 2) == 1):  # 50% of the time, this is true
       ball_speedY = 1
     else:  # Other 50% of the time
       ball_speedY = -1
@@ -125,13 +126,13 @@ while True:
   gb.display.fillRect(paddle2_posX, paddle2_posY, paddle_width, paddle_height)
 
   # Draw scores
-  gb.display.setCursor(35, 5)
+  # gb.display.setCursor(35, 5) # this method is not present in CircuitPython 0.0.5
   gb.display.print(score1)
-  gb.display.setCursor(42, 5)
+  # gb.display.setCursor(42, 5) # this method is not present in CircuitPython 0.0.5
   gb.display.print(score2)
 
   # Draw difficulty
-  gb.display.setCursor(33, gb.display.height() - 5)
+  # gb.display.setCursor(33, gb.display.height() - 5) # this method is not present in CircuitPython 0.0.5
   if (difficulty == 3):
     gb.display.print("EASY")
   else:

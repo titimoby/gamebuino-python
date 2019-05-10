@@ -13,27 +13,19 @@
 
 import gamebuino_meta as gb
 
+positionX = 32
+speedX = 1
+
 while True:
   gb.waitForUpdate()
   gb.display.clear()
 
-  if(gb.buttons.pressed(BUTTON_UP)):
-    counter = counter + 1
-    gb.sound.playOK()
+  positionX = positionX + speedX
 
-  if(gb.buttons.pressed(BUTTON_DOWN)):
-    counter = counter - 1
-    gb.sound.playCancel()
+  gb.display.print("positionX: ")
+  gb.display.print(positionX)
+  gb.display.print("\nspeedX: ")
+  gb.display.print(speedX)
 
-  if(gb.buttons.pressed(BUTTON_MENU)):
-    counter = 0
-    gb.sound.playTick()
-
-  gb.display.setColor(BROWN)
-  gb.display.fillRect(0, 0, counter, gb.display.height())
-
-  gb.display.setColor(WHITE)
-  gb.display.setFontSize(4)
-  gb.display.setCursor(8,8)
-  gb.display.print(counter)
+  gb.display.fillRect(positionX, 32, 4, 4)
 

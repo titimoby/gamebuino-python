@@ -25,7 +25,7 @@ while True:
   gb.display.print("1978")
 
   # Change color and revert to original size
-  gb.display.setColor(BROWN)
+  gb.display.setColor(gb.color.BROWN)
   gb.display.setFontSize(1)
   gb.display.print("\n\n\n     - GAMEBUINO")
 
