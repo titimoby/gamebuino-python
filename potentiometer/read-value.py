@@ -1,3 +1,11 @@
+# ----------------------------------------------------------
+# Read analog value on aport
+# Used in video Gamebuino 01 - Découverte de la console et premiers montages électroniques
+# https://youtu.be/NQbfONUid2U
+# ----------------------------------------------------------
+# Author: TitiMoby
+# Date: May 2019
+# ----------------------------------------------------------
 import gamebuino_meta as gb
 import time
 import board
